@@ -1,0 +1,32 @@
+
+.btnLogin{
+    background-color: rgb(171, 199, 159);
+    color: #100e0e;
+    width: 185px;
+    /*margin-top: 5px;*/
+    padding: 2px;
+    border-radius: 5px;
+
+}
+.nav-c{
+    background-color: rgba(168, 220, 203, 0.41);
+    color:white;
+    margin-bottom: 20px;
+}
+.search{
+    margin-top: 2px;
+    width: 200px;
+    background-color: rgb(77, 225, 174);
+    border-radius: 10px;
+    padding: 2px;
+}
+a:hover{
+    background-color: #d1d5cf;
+    border-radius: 10px;
+}
+.back-form{
+    background-color: rgba(250, 248, 248, 0.34);
+    height: 400px;
+    padding-left: 20px;
+padding-right: 20px;
+}

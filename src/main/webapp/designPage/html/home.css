@@ -2,6 +2,10 @@
     background-color: rgba(168, 220, 203, 0.41);
     color:white;
 }
+a:hover{
+    background-color: #8aa67c;
+    border-radius: 10px;
+}
 .search{
     margin-top: 2px;
     width: 200px;
