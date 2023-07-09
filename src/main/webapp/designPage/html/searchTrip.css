@@ -1,0 +1,25 @@
+.nav-c{
+    background-color: rgba(168, 220, 203, 0.41);
+color:white;
+}
+.parent{
+    width: 100vw;
+    height: 320px;
+    margin: 10px;
+    padding: 10px;
+    background-color: rgba(168, 220, 203, 0.41);
+}
+.submit{
+    margin-top: 10px;
+    width: 300px;
+    background-color: rgb(77, 225, 174);
+    border-radius: 10px;
+    padding: 5px;
+}
+.search{
+    margin-top: 2px;
+    width: 200px;
+    background-color: rgb(77, 225, 174);
+    border-radius: 10px;
+    padding: 2px;
+}
