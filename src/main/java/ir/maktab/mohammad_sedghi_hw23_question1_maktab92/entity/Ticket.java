@@ -16,9 +16,9 @@ import java.time.LocalDate;
 @Entity
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Ticket extends BaseEntity<Long> {
-    @ManyToOne
-    Passenger passenger;
-    String from;
+//    @ManyToOne
+//    Passenger passenger;
+    String  beginning;
     String destination;
     LocalDate departureDate;
     String departureTime;

@@ -1,0 +1,48 @@
+
+.btnLogin{
+    background-color: rgb(171, 199, 159);
+    color: #1f1a1a;
+    width: 185px;
+    margin-left: 15px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px 2px rgb(228, 232, 226);
+}
+.nav-c{
+    background-color: rgba(168, 220, 203, 0.41);
+    color:white;
+    /*margin-bottom: 20px;*/
+}
+.search{
+    margin-top: 2px;
+    width: 200px;
+    background-color: rgb(77, 225, 174);
+    border-radius: 10px;
+    padding: 2px;
+}
+a:hover{
+    background-color: #d1d5cf;
+    border-radius: 10px;
+}
+.back-form{
+    background-color: rgba(250, 248, 248, 0.33);
+    height: 600px;
+    padding-left: 20px;
+padding-right: 20px;
+}
+.firstdiv{
+
+    display: flex;
+    justify-content: left;
+    gap: 40px;
+    padding-left: 30px;
+}
+.second-div{
+    background-color: #faf8f8;
+    width: 300px;
+    padding-left: 20px;
+    margin-left: 30px;
+    border-radius: 10px;
+}
+.label-sh{
+    box-shadow: 4px 4px 4px 4px rgb(97, 101, 95);
+}

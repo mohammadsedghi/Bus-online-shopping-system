@@ -13,6 +13,11 @@ public class BaseServiceImpl <E extends BaseEntity<ID>,ID extends Serializable,
         REPOSITORY extends BaseRepository<E,ID>>implements BaseService<E,ID> {
 
    private REPOSITORY repository;
+
+    public BaseServiceImpl(REPOSITORY repository) {
+        this.repository = repository;
+    }
+
     @Override
     public E save(E entity) {
 repository.getSession().getTransaction().begin();

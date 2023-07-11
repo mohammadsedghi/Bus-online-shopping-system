@@ -10,7 +10,7 @@ public class TicketRepositoryImpl extends BaseRepositoryImpl<Ticket,Long>
         implements TicketRepository {
   private  Session session;
 
-    protected TicketRepositoryImpl(Session session) {
+    public TicketRepositoryImpl(Session session) {
         super(session);
         this.session=session;
     }

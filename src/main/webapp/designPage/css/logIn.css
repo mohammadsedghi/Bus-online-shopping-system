@@ -37,6 +37,7 @@
     width: 185px;
     margin-top: 10px;
     padding: 2px;
+    border-radius: 10px;
 }
 .textField-logIn{
     width: 300px;
@@ -52,4 +53,12 @@ margin-top: 10px;
 a:hover{
     background-color: #8aa67c;
     border-radius: 10px;
+}
+.submitPosition{
+margin-left: 58px;
+
+}
+.newAccountPosition{
+    margin-left: 87px;
+
 }

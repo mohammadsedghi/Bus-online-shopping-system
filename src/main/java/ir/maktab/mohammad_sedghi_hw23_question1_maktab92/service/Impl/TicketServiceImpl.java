@@ -12,6 +12,7 @@ public class TicketServiceImpl extends BaseServiceImpl<Ticket,Long, TicketReposi
 private  TicketRepository ticketRepository;
 
     public TicketServiceImpl(TicketRepository ticketRepository) {
+        super(ticketRepository);
         this.ticketRepository = ticketRepository;
     }
 }
