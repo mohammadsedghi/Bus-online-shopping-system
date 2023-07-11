@@ -17,7 +17,7 @@ public class HelloServlet extends HttpServlet {
     PassengerRepository passengerRepository;
     PassengerServiceImpl passengerService;
     private SessionFactory sessionFactory;
-    public static Passenger member;
+//    public static Passenger member;
 
 //    private String message;
 
@@ -29,18 +29,18 @@ public class HelloServlet extends HttpServlet {
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        Session session = sessionFactory.openSession();
-         passengerRepository = new PassengerRepositoryImpl(session);
-        passengerService = new PassengerServiceImpl(passengerRepository);
-        String username = request.getParameter("fname");
-        String password = request.getParameter("lname");
-        passengerService.findByUsernameAndPassword(username, password);
-        if (member == null) {
-            response.sendRedirect("login.html");
-        } else {
-            response.sendRedirect("designPage/html/searchTrip.html");
-
-        }
+//        Session session = sessionFactory.openSession();
+//         passengerRepository = new PassengerRepositoryImpl(session);
+//        passengerService = new PassengerServiceImpl(passengerRepository);
+//        String username = request.getParameter("fname");
+//        String password = request.getParameter("lname");
+//        passengerService.findByUsernameAndPassword(username, password);
+//        if (member == null) {
+//            response.sendRedirect("login.html");
+//        } else {
+//            response.sendRedirect("designPage/html/searchTrip.html");
+//
+//        }
 //        response.setContentType("text/html");
 //        // Hello
 //        PrintWriter out = response.getWriter();

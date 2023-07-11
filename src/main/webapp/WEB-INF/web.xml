@@ -19,4 +19,12 @@
         <servlet-name>BackServlet</servlet-name>
         <url-pattern>/back</url-pattern>
     </servlet-mapping>
+    <filter>
+        <filter-name>f1</filter-name>
+        <filter-class>ir.maktab.mohammad_sedghi_hw23_question1_maktab92.util.FilterCheck</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>f1</filter-name>
+        <url-pattern>/first</url-pattern>
+    </filter-mapping>
 </web-app>

@@ -4,6 +4,7 @@ import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.base.service.Impl.BaseS
 import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.entity.Passenger;
 import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.repository.PassengerRepository;
 import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.service.PassengerService;
+import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.util.FilterCheck;
 import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.util.HelloServlet;
 
 import java.util.Optional;
@@ -23,11 +24,11 @@ public class PassengerServiceImpl extends BaseServiceImpl<Passenger,Long, Passen
 
         optionalPerson.ifPresentOrElse(
                 person -> {
-                    HelloServlet.member = person;
+                    FilterCheck.member = person;
                 },
                 () -> {
                     System.out.println("Person not found. Start login again.");
-                    HelloServlet.member=null;
+                    FilterCheck.member=null;
 
                 }
         );
