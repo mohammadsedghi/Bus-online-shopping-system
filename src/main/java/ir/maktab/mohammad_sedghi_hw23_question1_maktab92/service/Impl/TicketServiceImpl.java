@@ -8,6 +8,7 @@ import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.service.PassengerServic
 import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.service.TicketService;
 
 import java.time.LocalDate;
+import java.util.Collection;
 import java.util.Set;
 
 public class TicketServiceImpl extends BaseServiceImpl<Ticket,Long, TicketRepository>
@@ -18,9 +19,8 @@ private  TicketRepository ticketRepository;
         super(ticketRepository);
         this.ticketRepository = ticketRepository;
     }
-
     @Override
-    public Set<Ticket> findPath(String beginning, String destination, LocalDate departureDate) {
+    public Collection<Ticket> findPath(String beginning, String destination, LocalDate departureDate) {
         return ticketRepository.findPath(beginning,destination,departureDate);
     }
 }

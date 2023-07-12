@@ -29,22 +29,33 @@
     <th scope="col">ردیف</th>
     <th scope="col">مسیر</th>
     <th scope="col">تاریخ حرکت</th>
+    <th scope="col">ساعت حرکت</th>ِِ
+    <th scope="col">شناسه سفر</th>ِِ
       <th scope="col">انتخاب</th>
   </tr>
     </thead>
-  <tr>
+
 <%
     int counter=1;
  Set<Ticket> tickets = new HashSet<>((Collection) request.getAttribute("ticketList"));
   for (Ticket ticket : tickets) {
 %>
+    <tr>
       <th scope="row"><%= counter%></th>
 <td><%= ticket.getBeginning()+"-"+ticket.getDestination() %></td>
-<%
+      <td><%= ticket.getDepartureDate() %></td>
+      <td><%= ticket.getDepartureTime() %></td>
+      <td><%= ticket.getTravelId() %></td>
+      <td><form action = "https://www.google.com">
+           <button>خرید</button>
+          </form>
+      </td>
+    </tr>
+      <%
       counter++;
   }
 %>
-  </tr>
+
 </table>
 <%--<table >--%>
 
