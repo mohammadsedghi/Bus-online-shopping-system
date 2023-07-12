@@ -6,6 +6,7 @@ import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.repository.PassengerRep
 import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.service.Impl.PassengerServiceImpl;
 import jakarta.servlet.*;
 import jakarta.servlet.http.HttpFilter;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -31,28 +32,14 @@ public class FilterCheck extends HttpFilter {
         String username = req.getParameter("fname");
         String password = req.getParameter("lname");
         passengerService.findByUsernameAndPassword(username, password);
+        HttpServletResponse httpResponse = (HttpServletResponse) resp;
+        HttpServletRequest httpRequest = (HttpServletRequest) req;
         if (member == null) {
-//            resp.sendRedirect("login.html");
-            RequestDispatcher rd = req.getRequestDispatcher("designPage/html/index.jsp");
-            
+            RequestDispatcher rd = req.getRequestDispatcher("/back");
             rd.forward(req, resp);
         } else {
-            HttpServletResponse httpResponse = (HttpServletResponse) resp;
-
             chain.doFilter(req, resp);
             httpResponse.sendRedirect("designPage/html/searchTrip.html");
-
         }
-//        PrintWriter out = resp.getWriter();
-//
-//        String password = req.getParameter("password");
-//        System.out.println(password);
-//        if (password.equals("admin")) {
-//            chain.doFilter(req, resp);//sends request to next resource
-//        } else {
-//            RequestDispatcher rd = req.getRequestDispatcher("aaa.html");
-//            rd.forward(req, resp);
-//
-//        }
     }
 }

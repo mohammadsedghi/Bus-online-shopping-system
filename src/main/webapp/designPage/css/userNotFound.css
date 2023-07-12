@@ -1,0 +1,42 @@
+.user{
+    /*width: 30px;*/
+    /*height: 30px;*/
+    /*display: block;*/
+
+
+
+}
+
+.nav-c{
+    background-color: rgba(168, 220, 203, 0.41);
+    color:white;
+}
+.search{
+    margin-top: 2px;
+    width: 200px;
+    background-color: rgb(77, 225, 174);
+    border-radius: 10px;
+    padding: 2px;
+}
+.login{
+    width: 200px;
+    height: 400px;
+    margin-left: 20px;
+    background-color: dimgrey;
+}
+.form{
+    /*background-color: rgba(114, 192, 114, 0.6);*/
+    background-color: rgb(255, 255, 255);
+    width: 400px;
+    height: 400px;
+    border-radius: 10px;
+    margin-left: 10%;
+    margin-top: 11%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 4px white;
+    /*box-shadow: 4px 4px 4px 4px rgb(38, 42, 37);*/
+    box-shadow: 4px 4px 4px 4px rgb(181, 189, 179);
+    color: #151111;
+}
