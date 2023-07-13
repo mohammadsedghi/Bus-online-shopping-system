@@ -6,7 +6,10 @@ import jakarta.persistence.ManyToOne;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+
+
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 @Setter
 @Getter
@@ -16,12 +19,20 @@ import java.time.LocalDate;
 @Entity
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Ticket extends BaseEntity<Long> {
-//    @ManyToOne
-//    Passenger passenger;
+    @ManyToOne
+    Passenger passenger;
     String  beginning;
     String destination;
     LocalDate departureDate;
-    String departureTime;
+    //    String departureTime;
+    LocalTime departureTime;
     String travelId;
+    public Ticket(String beginning, String destination, LocalDate departureDate, LocalTime departureTime, String travelId) {
+        this.beginning = beginning;
+        this.destination = destination;
+        this.departureDate = departureDate;
+        this.departureTime = departureTime;
+        this.travelId = travelId;
+    }
 
 }

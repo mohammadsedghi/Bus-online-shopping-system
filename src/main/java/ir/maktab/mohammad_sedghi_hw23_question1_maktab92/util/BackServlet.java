@@ -25,6 +25,7 @@ import org.hibernate.SessionFactory;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.*;
 
 @Setter
@@ -50,13 +51,13 @@ public class BackServlet extends HttpServlet {
         Session session = sessionFactory.openSession();
         ticketRepository = new TicketRepositoryImpl(session);
         ticketService = new TicketServiceImpl(ticketRepository);
-      Ticket ticket=new Ticket("tehran","esfahan", LocalDate.now(),"19","787");
-       ticketService.save(ticket);
+     // Ticket ticket=new Ticket("tehran","esfahan", LocalDate.now(), LocalTime.of(13,40),"792");
+      // ticketService.save(ticket);
          beginning=req.getParameter("begin");
        destination=req.getParameter("destination");
        String date=req.getParameter("departureDate");
        departureDate=LocalDate.parse(date);
-        Set<Ticket>ticketList=new HashSet<>(ticketService.findPath(beginning,destination,departureDate));
+        List<Ticket>ticketList=new ArrayList<>(ticketService.findPath(beginning,destination,departureDate));
        req.setAttribute("ticketList",ticketList);
        req.setAttribute("beginning",beginning);
        req.setAttribute("destination",destination);

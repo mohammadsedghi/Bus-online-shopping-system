@@ -1,7 +1,5 @@
 <%@ page import="ir.maktab.mohammad_sedghi_hw23_question1_maktab92.entity.Ticket" %>
-<%@ page import="java.util.Set" %>
-<%@ page import="java.util.HashSet" %>
-<%@ page import="java.util.Collection" %><%--
+<%@ page import="java.util.*" %><%--
   Created by IntelliJ IDEA.
   User: mohammad
   Date: 7/12/2023
@@ -37,7 +35,7 @@
 
 <%
     int counter=1;
- Set<Ticket> tickets = new HashSet<>((Collection) request.getAttribute("ticketList"));
+List<Ticket> tickets = new ArrayList<>((ArrayList) request.getAttribute("ticketList"));
   for (Ticket ticket : tickets) {
 %>
     <tr>
@@ -46,8 +44,8 @@
       <td><%= ticket.getDepartureDate() %></td>
       <td><%= ticket.getDepartureTime() %></td>
       <td><%= ticket.getTravelId() %></td>
-      <td><form action = "https://www.google.com">
-           <button>خرید</button>
+      <td><form  action = "http://localhost:8080/mohammad_sedghi_hw23_question1_maktab92_war_exploded/designPage/html/buyTicket.jsp">
+           <input type="submit" value="خرید">
           </form>
       </td>
     </tr>
