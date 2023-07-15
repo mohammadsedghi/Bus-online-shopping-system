@@ -3,6 +3,7 @@ package ir.maktab.mohammad_sedghi_hw23_question1_maktab92.util;
 
 
 
+import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.controller.VerifyTicket;
 import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.entity.Ticket;
 import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.repository.Impl.PassengerRepositoryImpl;
 import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.repository.Impl.TicketRepositoryImpl;
@@ -58,6 +59,7 @@ public class BackServlet extends HttpServlet {
        String date=req.getParameter("departureDate");
        departureDate=LocalDate.parse(date);
         List<Ticket>ticketList=new ArrayList<>(ticketService.findPath(beginning,destination,departureDate));
+        VerifyTicket.ticket=ticketList;
        req.setAttribute("ticketList",ticketList);
        req.setAttribute("beginning",beginning);
        req.setAttribute("destination",destination);

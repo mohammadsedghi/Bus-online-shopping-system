@@ -19,6 +19,24 @@
         <servlet-name>BackServlet</servlet-name>
         <url-pattern>/back</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>BuyTicketServlet</servlet-name>
+        <servlet-class>ir.maktab.mohammad_sedghi_hw23_question1_maktab92.util.BuyTicketServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>BuyTicketServlet</servlet-name>
+        <url-pattern>/buy</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>confirmTicketServlet</servlet-name>
+        <servlet-class>ir.maktab.mohammad_sedghi_hw23_question1_maktab92.util.ConfirmServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>confirmTicketServlet</servlet-name>
+        <url-pattern>/confirm</url-pattern>
+    </servlet-mapping>
+
+
     <filter>
         <filter-name>f1</filter-name>
         <filter-class>ir.maktab.mohammad_sedghi_hw23_question1_maktab92.util.FilterCheck</filter-class>

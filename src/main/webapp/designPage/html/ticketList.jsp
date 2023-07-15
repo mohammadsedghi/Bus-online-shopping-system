@@ -1,5 +1,6 @@
 <%@ page import="ir.maktab.mohammad_sedghi_hw23_question1_maktab92.entity.Ticket" %>
-<%@ page import="java.util.*" %><%--
+<%@ page import="java.util.*" %>
+<%@ page import="ir.maktab.mohammad_sedghi_hw23_question1_maktab92.controller.VerifyTicket" %><%--
   Created by IntelliJ IDEA.
   User: mohammad
   Date: 7/12/2023
@@ -21,6 +22,7 @@
     <title>نتایج جست و جو</title>
 </head>
 <body>
+<form method="post" action = "http://localhost:8080/mohammad_sedghi_hw23_question1_maktab92_war_exploded/buy">
 <table class="table table-bordered border-primary">
   <thead>
   <tr>
@@ -40,67 +42,17 @@ List<Ticket> tickets = new ArrayList<>((ArrayList) request.getAttribute("ticketL
 %>
     <tr>
       <th scope="row"><%= counter%></th>
-<td><%= ticket.getBeginning()+"-"+ticket.getDestination() %></td>
-      <td><%= ticket.getDepartureDate() %></td>
+      <td><%= ticket.getBeginning()+"-"+ticket.getDestination() %></td>
+      <td ><%= ticket.getDepartureDate() %></td>
       <td><%= ticket.getDepartureTime() %></td>
       <td><%= ticket.getTravelId() %></td>
-      <td><form  action = "http://localhost:8080/mohammad_sedghi_hw23_question1_maktab92_war_exploded/designPage/html/buyTicket.jsp">
-           <input type="submit" value="خرید">
-          </form>
-      </td>
+      <td><button type="submit" value="<%= counter%>" name="se">buy</button></td>
     </tr>
       <%
       counter++;
   }
 %>
-
 </table>
-<%--<table >--%>
-
-<%--  <c:forEach items="${ticketList}" var="t">--%>
-<%--    <tr>--%>
-<%--      <td><c:out value="${t.beginning}" /></td>--%>
-<%--&lt;%&ndash;      <td>${t.getBeginning}</td>&ndash;%&gt;--%>
-<%--    </tr>--%>
-<%--  </c:forEach>--%>
-<%--</table>--%>
-<%--<table class="table">--%>
-<%--  <thead>--%>
-<%--  <tr>--%>
-<%--    <th scope="col">ردیف</th>--%>
-<%--    <th scope="col">مسیر</th>--%>
-<%--    <th scope="col">Last</th>--%>
-<%--    <th scope="col">تاریخ حرکت</th>--%>
-<%--  </tr>--%>
-<%--  </thead>--%>
-<%--  <tbody>--%>
-<%--  <table>--%>
-<%--&lt;%&ndash;  &lt;%&ndash;%>--%>
-<%--&lt;%&ndash;    for (Ticket t:(List<Ticket>)request.getAttribute("ticketList")&ndash;%&gt;--%>
-<%--&lt;%&ndash;    ) {&ndash;%&gt;--%>
-<%--&lt;%&ndash;      if (t.getBeginning().equals(request.getAttribute("beginning"))&&t.getDestination().equals(request.getAttribute("destination"))){&ndash;%&gt;--%>
-<%--&lt;%&ndash;        System.out.println("true");&ndash;%&gt;--%>
-
-<%--&lt;%&ndash;      }&ndash;%&gt;--%>
-<%--&lt;%&ndash;  } %>&ndash;%&gt;--%>
-<%--  <tr>--%>
-<%--    <th scope="row">1</th>--%>
-<%--    <td>aaa</td>--%>
-<%--    <td>aaa</td>--%>
-<%--    <td>@mdo</td>--%>
-<%--  </tr>--%>
-<%--  <tr>--%>
-<%--    <th scope="row">2</th>--%>
-<%--    <td>Jacob</td>--%>
-<%--    <td>Thornton</td>--%>
-<%--    <td>@fat</td>--%>
-<%--  </tr>--%>
-<%--  <tr>--%>
-<%--    <th scope="row">3</th>--%>
-<%--    <td colspan="2">Larry the Bird</td>--%>
-<%--    <td>@twitter</td>--%>
-<%--  </tr>--%>
-<%--  </tbody>--%>
-<%--</table>--%>
+</form>
 </body>
 </html>
