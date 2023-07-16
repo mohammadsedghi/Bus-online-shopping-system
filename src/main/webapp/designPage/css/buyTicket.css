@@ -13,17 +13,37 @@ a:hover{
     border-radius: 10px;
     padding: 2px;
 }
-.form{
-    background-color: rgba(255, 255, 255, 0.39);
-    width: 400px;
+.buyForm{
+    background-color: rgba(255, 255, 255, 0.55);
+    width:400px;
     height: 300px;
     border-radius: 10px;
-    margin-left: 10%;
+    margin-left: 20%;
     margin-top: 15%;
     display: flex;
-    justify-content: center;
+    justify-content: end;
     align-items: center;
     border: 4px white;
     box-shadow: 4px 4px 4px 4px rgb(181, 189, 179);
     color: #151111;
+}
+.btnLogin{
+    background-color: rgb(53, 124, 23);
+    color: #faf8f8;
+    width: 185px;
+    margin-top: 10px;
+    padding: 2px;
+    border-radius: 10px;
+}
+.submitPosition{
+    margin-left: 58px;
+
+}
+.nameAndLastname{
+    margin-left: 20PX;
+    margin-top: 10px;
+    margin-right: 20px;
+    border-radius: 5px;
+    width: 120px;
+    text-align: center;
 }

@@ -46,7 +46,7 @@ List<Ticket> tickets = new ArrayList<>((ArrayList) request.getAttribute("ticketL
       <td ><%= ticket.getDepartureDate() %></td>
       <td><%= ticket.getDepartureTime() %></td>
       <td><%= ticket.getTravelId() %></td>
-      <td><button type="submit" value="<%= counter%>" name="se">buy</button></td>
+      <td><button type="submit" value="<%= counter%>" name="se">خرید</button></td>
     </tr>
       <%
       counter++;

@@ -26,8 +26,9 @@ public class BuyTicketServlet extends HttpServlet {
         req.setAttribute("ticket",ticket);
         HttpSession session=req.getSession();
         session.setAttribute("ticket",ticket);
-        RequestDispatcher rd = req.getRequestDispatcher("designPage/html/buyTicket.jsp");
-        rd.forward(req, resp);
+        resp.sendRedirect("designPage/html/buyTicket.html");
+//        RequestDispatcher rd = req.getRequestDispatcher("designPage/html/buyTicket.html");
+//        rd.forward(req, resp);
 
     }
 }

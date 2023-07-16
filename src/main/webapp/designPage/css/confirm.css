@@ -14,15 +14,17 @@ a:hover{
     padding: 2px;
 }
 .form{
-    background-color: coral;
-    width: 500px;
-    height: 400px;
+
+    width: 300px;
+    height: 100px;
     margin-top: 50px;
     margin-left: 50px;
+    border-radius: 10px;
     display: flex;
     justify-content: center;
     justify-items: center;
     text-align: center;
     direction: rtl;
+    background-color: #ff7f50;
 
 }
