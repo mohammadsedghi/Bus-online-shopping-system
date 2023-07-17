@@ -2,10 +2,10 @@ package ir.maktab.mohammad_sedghi_hw23_question1_maktab92.util;
 
 import java.io.*;
 
-import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.entity.Passenger;
-import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.repository.Impl.PassengerRepositoryImpl;
-import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.repository.PassengerRepository;
-import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.service.Impl.PassengerServiceImpl;
+import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.entity.Member;
+import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.repository.Impl.MemberRepositoryImpl;
+import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.repository.MemberRepository;
+import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.service.Impl.MemberServiceImpl;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -14,13 +14,9 @@ import org.hibernate.SessionFactory;
 
 @WebServlet(name = "helloServlet", value = "/first")
 public class HelloServlet extends HttpServlet {
-    PassengerRepository passengerRepository;
-    PassengerServiceImpl passengerService;
+    MemberRepository memberRepository;
+    MemberServiceImpl memberService;
     private SessionFactory sessionFactory;
-//    public static Passenger member;
-
-//    private String message;
-
     public void init() {
         sessionFactory= HibernateUtil.getSessionFactory();
 //        passengerRepository = new PassengerRepositoryImpl(session);
@@ -52,16 +48,16 @@ public class HelloServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Session session = sessionFactory.openSession();
-        passengerRepository = new PassengerRepositoryImpl(session);
-        passengerService = new PassengerServiceImpl(passengerRepository);
+        memberRepository = new MemberRepositoryImpl(session);
+        memberService = new MemberServiceImpl(memberRepository);
        String firstName=req.getParameter("fname");
        String lastName=req.getParameter("lname");
         String username = req.getParameter("uname");
         String password = req.getParameter("pass");
         String nationalCode=req.getParameter("national");
         String gender=req.getParameter("gender");
-        Passenger passenger=new Passenger(firstName,lastName,nationalCode,gender,username,password);
-        passengerService.save(passenger);
+        Member member =new Member(firstName,lastName,nationalCode,gender,username,password);
+        memberService.save(member);
 
     }
 

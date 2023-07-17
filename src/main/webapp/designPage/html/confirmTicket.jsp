@@ -27,6 +27,9 @@
                     <li class="nav-item">
                         <a class="nav-link text-dark fw-bold" href="searchTrip.html">خرید بلیط</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark fw-bold" href="ShowBoughtTicket.jsp"> لیست بلیط های خریداری شده</a>
+                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle text-dark fw-bold" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="true">
                             تماس با ما
@@ -50,6 +53,7 @@
     String travelId=(String)session1.getAttribute("travelId");
     String nameLastname=(String)session1.getAttribute("nameLastname");
     String gender=(String)session1.getAttribute("gender");
+    String nationalId=(String)session1.getAttribute("nationalId");
 %>
         <form class="form">
         <div class="mb-3 fw-bold " >
@@ -58,11 +62,13 @@
             if (gender.equals("male")){%>
         <p>آقای
         <%= nameLastname %>
+            با کد ملی <%= nationalId%>
         خرید بلیط شما با موفقیت انجام شد </p>
         <%
         }else if (gender.equals("female")){
         %>
-        <p> خانم <%= nameLastname %>خرید بلیط شما با موفقیت انجام شد  </p>
+        <p> خانم <%= nameLastname %>  با کد ملی <%= nationalId%>
+            خرید بلیط شما با موفقیت انجام شد  </p>
         <%
             }
         %>

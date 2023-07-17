@@ -35,8 +35,22 @@
         <servlet-name>confirmTicketServlet</servlet-name>
         <url-pattern>/confirm</url-pattern>
     </servlet-mapping>
-
-
+    <servlet>
+        <servlet-name>ShowBoughtTicket</servlet-name>
+        <servlet-class>ir.maktab.mohammad_sedghi_hw23_question1_maktab92.util.ShowBoughtTicket</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ShowBoughtTicket</servlet-name>
+        <url-pattern>/ShowBoughtTicket</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ShowDetailBoughtTicket</servlet-name>
+        <servlet-class>ir.maktab.mohammad_sedghi_hw23_question1_maktab92.util.ShowDetailBoughtTicket</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ShowDetailBoughtTicket</servlet-name>
+        <url-pattern>/ShowDetailBoughtTicket</url-pattern>
+    </servlet-mapping>
     <filter>
         <filter-name>f1</filter-name>
         <filter-class>ir.maktab.mohammad_sedghi_hw23_question1_maktab92.util.FilterCheck</filter-class>

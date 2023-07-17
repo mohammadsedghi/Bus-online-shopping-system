@@ -1,4 +1,4 @@
-<%@ page import="ir.maktab.mohammad_sedghi_hw23_question1_maktab92.entity.Ticket" %>
+<%@ page import="ir.maktab.mohammad_sedghi_hw23_question1_maktab92.entity.Trip" %>
 <%@ page import="java.util.*" %>
 <%@ page import="ir.maktab.mohammad_sedghi_hw23_question1_maktab92.controller.VerifyTicket" %><%--
   Created by IntelliJ IDEA.
@@ -37,15 +37,15 @@
 
 <%
     int counter=1;
-List<Ticket> tickets = new ArrayList<>((ArrayList) request.getAttribute("ticketList"));
-  for (Ticket ticket : tickets) {
+List<Trip> trips = new ArrayList<>((ArrayList) request.getAttribute("tripList"));
+  for (Trip trip : trips) {
 %>
     <tr>
       <th scope="row"><%= counter%></th>
-      <td><%= ticket.getBeginning()+"-"+ticket.getDestination() %></td>
-      <td ><%= ticket.getDepartureDate() %></td>
-      <td><%= ticket.getDepartureTime() %></td>
-      <td><%= ticket.getTravelId() %></td>
+      <td><%= trip.getBeginning()+"-"+ trip.getDestination() %></td>
+      <td ><%= trip.getDepartureDate() %></td>
+      <td><%= trip.getDepartureTime() %></td>
+      <td><%= trip.getTravelId() %></td>
       <td><button type="submit" value="<%= counter%>" name="se">خرید</button></td>
     </tr>
       <%

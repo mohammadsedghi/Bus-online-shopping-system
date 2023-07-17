@@ -4,16 +4,13 @@ package ir.maktab.mohammad_sedghi_hw23_question1_maktab92.util;
 
 
 import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.controller.VerifyTicket;
-import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.entity.Ticket;
-import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.repository.Impl.PassengerRepositoryImpl;
-import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.repository.Impl.TicketRepositoryImpl;
-import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.repository.TicketRepository;
+import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.entity.Trip;
+import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.repository.Impl.TripRepositoryImpl;
+import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.repository.TripRepository;
 
-import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.service.Impl.PassengerServiceImpl;
-import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.service.Impl.TicketServiceImpl;
+import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.service.Impl.TripServiceImpl;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -24,17 +21,15 @@ import org.hibernate.SessionFactory;
 
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.*;
 
 @Setter
 @Getter
 //@WebServlet(name = "BackServlet", value = "/back")
 public class BackServlet extends HttpServlet {
-    TicketRepository ticketRepository;
-    TicketServiceImpl ticketService;
+    TripRepository tripRepository;
+    TripServiceImpl ticketService;
     private SessionFactory sessionFactory;
     String beginning;
     String destination;
@@ -50,17 +45,17 @@ public class BackServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Session session = sessionFactory.openSession();
-        ticketRepository = new TicketRepositoryImpl(session);
-        ticketService = new TicketServiceImpl(ticketRepository);
+        tripRepository = new TripRepositoryImpl(session);
+        ticketService = new TripServiceImpl(tripRepository);
      // Ticket ticket=new Ticket("tehran","esfahan", LocalDate.now(), LocalTime.of(13,40),"792");
       // ticketService.save(ticket);
          beginning=req.getParameter("begin");
        destination=req.getParameter("destination");
        String date=req.getParameter("departureDate");
        departureDate=LocalDate.parse(date);
-        List<Ticket>ticketList=new ArrayList<>(ticketService.findPath(beginning,destination,departureDate));
-        VerifyTicket.ticket=ticketList;
-       req.setAttribute("ticketList",ticketList);
+        List<Trip> tripList =new ArrayList<>(ticketService.findPath(beginning,destination,departureDate));
+        VerifyTicket.trip = tripList;
+       req.setAttribute("tripList", tripList);
        req.setAttribute("beginning",beginning);
        req.setAttribute("destination",destination);
         RequestDispatcher rd = req.getRequestDispatcher("designPage/html/ticketList.jsp");

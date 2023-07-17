@@ -10,7 +10,7 @@
         <property name="connection_pool_size">1</property>
         <property name="hbm2ddl.auto">update</property>
         <property name="show_sql">true</property>
-        <mapping class="ir.maktab.mohammad_sedghi_hw23_question1_maktab92.entity.Passenger"/>
-        <mapping class="ir.maktab.mohammad_sedghi_hw23_question1_maktab92.entity.Ticket"/>
+        <mapping class="ir.maktab.mohammad_sedghi_hw23_question1_maktab92.entity.Member"/>
+        <mapping class="ir.maktab.mohammad_sedghi_hw23_question1_maktab92.entity.Trip"/>
     </session-factory>
 </hibernate-configuration>

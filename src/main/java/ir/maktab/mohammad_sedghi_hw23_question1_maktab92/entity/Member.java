@@ -13,7 +13,7 @@ import lombok.experimental.FieldDefaults;
 @ToString
 @Entity
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class Passenger extends BaseEntity<Long> {
+public class Member extends BaseEntity<Long> {
     String firstName;
     String lastName;
     String nationalId;
