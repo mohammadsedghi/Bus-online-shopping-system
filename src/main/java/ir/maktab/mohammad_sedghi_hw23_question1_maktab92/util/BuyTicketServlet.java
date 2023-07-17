@@ -2,7 +2,7 @@ package ir.maktab.mohammad_sedghi_hw23_question1_maktab92.util;
 
 
 import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.controller.VerifyTicket;
-import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.entity.Trip;
+import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.entity.Ticket;
 import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -20,10 +20,10 @@ public class BuyTicketServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int counter=Integer.parseInt(req.getParameter("se"));
-        Trip trip =VerifyTicket.trip.get(counter-1);
-        req.setAttribute("trip", trip);
+        Ticket ticket =VerifyTicket.ticket.get(counter-1);
+        req.setAttribute("ticket", ticket);
         HttpSession session=req.getSession();
-        session.setAttribute("trip", trip);
+        session.setAttribute("ticket", ticket);
         resp.sendRedirect("designPage/html/buyTicket.html");
 //        RequestDispatcher rd = req.getRequestDispatcher("designPage/html/buyTicket.html");
 //        rd.forward(req, resp);

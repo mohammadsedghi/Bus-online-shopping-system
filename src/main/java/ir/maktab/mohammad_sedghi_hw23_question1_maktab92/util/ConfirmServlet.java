@@ -1,11 +1,11 @@
 package ir.maktab.mohammad_sedghi_hw23_question1_maktab92.util;
 
 
-import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.entity.Member;
-import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.entity.Trip;
-import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.repository.Impl.TripRepositoryImpl;
-import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.repository.TripRepository;
-import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.service.Impl.TripServiceImpl;
+import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.controller.VerifyTicket;
+import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.entity.Ticket;
+import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.repository.Impl.TicketRepositoryImpl;
+import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.repository.TicketRepository;
+import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.service.Impl.TicketServiceImpl;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -18,8 +18,8 @@ import java.io.IOException;
 
 
 public class ConfirmServlet extends HttpServlet {
-   TripRepository tripRepository;
-   TripServiceImpl tripService;
+   TicketRepository ticketRepository;
+   TicketServiceImpl ticketService;
     private SessionFactory sessionFactory;
     @Override
     public void init() throws ServletException {
@@ -28,25 +28,30 @@ public class ConfirmServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Session sessionDb = sessionFactory.openSession();
-        tripRepository = new TripRepositoryImpl(sessionDb);
-        tripService = new TripServiceImpl(tripRepository);
+        ticketRepository =new TicketRepositoryImpl(sessionDb);
+        ticketService =new TicketServiceImpl(ticketRepository);
         String nameLastname=req.getParameter("nameLastname");
         String gender=req.getParameter("inlineRadioOptions");
         String nationalId=req.getParameter(("nationalId"));
         HttpSession session=req.getSession();
-        Trip trip = (Trip) session.getAttribute("trip");
-        System.out.println("confirm      "+ trip);
-        session.setAttribute("travelId", trip.getTravelId());
+        Ticket ticket=(Ticket) session.getAttribute("ticket");
+        System.out.println("ticket confirm      "+ ticket);
+        session.setAttribute("travelId", ticket.getTravelId());
         session.setAttribute("nameLastname",nameLastname);
         session.setAttribute("gender",gender);
         session.setAttribute("nationalId",nationalId);
-        trip.setNameAndFamily(nameLastname);
-        trip.setGender(gender);
-        trip.setNationalId(nationalId);
-         tripService.update(trip);//*******************************update
-        Member member =new Member();
-        member.setLastName(nameLastname);
-        member.setGender(gender);
+        ticket.setGender(gender);
+        ticket.setNameAndFamily(nameLastname);
+        ticket.setNationalId(nationalId);
+        ticket.setMember(FilterCheck.member);
+       Ticket ticket1=new Ticket(ticket.getBeginning(),ticket.getDestination(),ticket.getDepartureDate(),ticket.getDepartureTime(),ticket.getTravelId());
+        ticket1.setMember(FilterCheck.member);
+        ticket1.setGender(gender);
+        ticket1.setNameAndFamily(nameLastname);
+        ticket1.setNationalId(nationalId);
+
+//         ticket1=ticket;
+         ticketService.save(ticket1);//*******************************save
         resp.sendRedirect("designPage/html/confirmTicket.jsp");
 ;
     }

@@ -1,6 +1,7 @@
-<%@ page import="ir.maktab.mohammad_sedghi_hw23_question1_maktab92.entity.Trip" %>
+<%@ page import="ir.maktab.mohammad_sedghi_hw23_question1_maktab92.entity.Ticket" %>
 <%@ page import="java.util.*" %>
-<%@ page import="ir.maktab.mohammad_sedghi_hw23_question1_maktab92.controller.VerifyTicket" %><%--
+<%@ page import="ir.maktab.mohammad_sedghi_hw23_question1_maktab92.controller.VerifyTicket" %>
+<%@ page import="ir.maktab.mohammad_sedghi_hw23_question1_maktab92.entity.Ticket" %><%--
   Created by IntelliJ IDEA.
   User: mohammad
   Date: 7/12/2023
@@ -37,15 +38,15 @@
 
 <%
     int counter=1;
-List<Trip> trips = new ArrayList<>((ArrayList) request.getAttribute("tripList"));
-  for (Trip trip : trips) {
+List<Ticket> tickets = new ArrayList<>((ArrayList) request.getAttribute("ticketList"));
+  for (Ticket ticket : tickets) {
 %>
     <tr>
       <th scope="row"><%= counter%></th>
-      <td><%= trip.getBeginning()+"-"+ trip.getDestination() %></td>
-      <td ><%= trip.getDepartureDate() %></td>
-      <td><%= trip.getDepartureTime() %></td>
-      <td><%= trip.getTravelId() %></td>
+      <td><%= ticket.getBeginning()+"-"+ ticket.getDestination() %></td>
+      <td ><%= ticket.getDepartureDate() %></td>
+      <td><%= ticket.getDepartureTime() %></td>
+      <td><%= ticket.getTravelId() %></td>
       <td><button type="submit" value="<%= counter%>" name="se">خرید</button></td>
     </tr>
       <%

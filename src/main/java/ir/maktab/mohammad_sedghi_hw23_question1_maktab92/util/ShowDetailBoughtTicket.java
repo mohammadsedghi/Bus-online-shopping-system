@@ -1,9 +1,10 @@
 package ir.maktab.mohammad_sedghi_hw23_question1_maktab92.util;
 
 import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.controller.VerifyTicket;
-import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.entity.Trip;
-import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.repository.TripRepository;
-import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.service.Impl.TripServiceImpl;
+import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.entity.Ticket;
+import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.repository.TicketRepository;
+import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.service.Impl.TicketServiceImpl;
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -14,8 +15,8 @@ import org.hibernate.SessionFactory;
 import java.io.IOException;
 
 public class ShowDetailBoughtTicket extends HttpServlet {
-    TripRepository tripRepository;
-    TripServiceImpl tripService;
+    TicketRepository ticketRepository;
+    TicketServiceImpl tripService;
     private SessionFactory sessionFactory;
 
     @Override
@@ -26,11 +27,13 @@ public class ShowDetailBoughtTicket extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int counter = Integer.parseInt(req.getParameter("show"));
-        Trip trip = VerifyTicket.boughtTrip.get(counter - 1);
-        System.out.println("ttttttt " + trip);
-        req.setAttribute("ticket", trip);
+        Ticket ticket = VerifyTicket.boughtTicket.get(counter - 1);
+        System.out.println("uuuuu " + ticket);
+        req.setAttribute("ticket", ticket);
         HttpSession session = req.getSession();
-        session.setAttribute("ticket", trip);
-        resp.sendRedirect("designPage/html/buyTicket.html");
+        session.setAttribute("ticket", ticket);
+        RequestDispatcher rd = req.getRequestDispatcher("designPage/html/ShowDetailBoughtTicket.jsp");
+        rd.forward(req, resp);
+      //  resp.sendRedirect("designPage/html/ShowDetailBoughtTicket.jsp");
     }
 }

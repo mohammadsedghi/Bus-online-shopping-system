@@ -58,7 +58,7 @@ public class HelloServlet extends HttpServlet {
         String gender=req.getParameter("gender");
         Member member =new Member(firstName,lastName,nationalCode,gender,username,password);
         memberService.save(member);
-
+         resp.sendRedirect("designPage/html/logIn.html");
     }
 
 

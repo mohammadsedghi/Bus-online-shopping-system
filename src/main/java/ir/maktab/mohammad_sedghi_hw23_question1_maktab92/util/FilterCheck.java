@@ -13,7 +13,7 @@ import org.hibernate.SessionFactory;
 
 import java.io.IOException;
 
-public class FilterCheck extends HttpFilter {
+public class FilterCheck implements Filter {
     MemberRepository memberRepository;
     MemberServiceImpl memberService;
     private SessionFactory sessionFactory;
@@ -34,11 +34,12 @@ public class FilterCheck extends HttpFilter {
         HttpServletResponse httpResponse = (HttpServletResponse) resp;
         HttpServletRequest httpRequest = (HttpServletRequest) req;
         if (member == null) {
-            RequestDispatcher rd = req.getRequestDispatcher("/back");
-            rd.forward(req, resp);
+           // RequestDispatcher rd = req.getRequestDispatcher("/back");
+            httpResponse.sendRedirect( "designPage/html/userNotFound.html");
+          //  rd.forward(req, resp);
         } else {
             chain.doFilter(req, resp);
-            httpResponse.sendRedirect("designPage/html/searchTrip.html");
+//            httpResponse.sendRedirect("designPage/html/searchTrip.html");
         }
     }
 }

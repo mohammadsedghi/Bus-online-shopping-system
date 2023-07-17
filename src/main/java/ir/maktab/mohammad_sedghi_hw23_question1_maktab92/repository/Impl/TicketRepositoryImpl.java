@@ -1,21 +1,22 @@
 package ir.maktab.mohammad_sedghi_hw23_question1_maktab92.repository.Impl;
 
 import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.base.repositpry.impl.BaseRepositoryImpl;
-import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.entity.Trip;
+import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.entity.Ticket;
 
-import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.repository.TripRepository;
+import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.repository.TicketRepository;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 
 import java.time.LocalDate;
 import java.util.Collection;
+import java.util.Optional;
 
 
-public class TripRepositoryImpl extends BaseRepositoryImpl<Trip,Long>
-        implements TripRepository {
+public class TicketRepositoryImpl extends BaseRepositoryImpl<Ticket,Long>
+        implements TicketRepository {
   private  Session session;
 
-    public TripRepositoryImpl(Session session) {
+    public TicketRepositoryImpl(Session session) {
         super(session);
         this.session=session;
     }
@@ -26,12 +27,12 @@ public class TripRepositoryImpl extends BaseRepositoryImpl<Trip,Long>
     }
 
     @Override
-    public Class<Trip> getEntityClass() {
-        return Trip.class;
+    public Class<Ticket> getEntityClass() {
+        return Ticket.class;
     }
 
     @Override
-    public Collection<Trip> findPath(String beginning, String destination, LocalDate departureDate) {
+    public Collection<Ticket> findPath(String beginning, String destination, LocalDate departureDate) {
 //      CriteriaBuilder cb = session.getCriteriaBuilder();
 //      CriteriaQuery<Ticket> cr = cb.createQuery(Ticket.class);
 //      Root<Ticket> root = cr.from(Ticket.class);
@@ -44,11 +45,9 @@ public class TripRepositoryImpl extends BaseRepositoryImpl<Trip,Long>
 //      TypedQuery<Ticket> query = session.createQuery(cr);
 //      return query.getResultList();
 
-
-
-      String hql="select t from Trip t  where t.beginning=:beginning and t.destination=:destination" +
-              " and t.departureDate=:departureDate  order by t.departureTime asc ";
-        Query<Trip> ticket= session.createQuery(hql, Trip.class);
+      String hql="select t from Ticket t  where t.beginning=:beginning and t.destination=:destination" +
+              " and t.departureDate=:departureDate and t.member is null order by t.departureTime asc ";
+        Query<Ticket> ticket= session.createQuery(hql, Ticket.class);
         ticket.setParameter("beginning", beginning);
         ticket.setParameter("destination", destination);
         ticket.setParameter("departureDate",departureDate);
@@ -56,12 +55,12 @@ public class TripRepositoryImpl extends BaseRepositoryImpl<Trip,Long>
     }
 
   @Override
-  public Collection<Trip> findBoughtTicket(String nationalIdMember) {
-      //TODO SOMETHING
-//    String hql="select t from Trip t  where t.passenger.nationalId=:nationalId";
-//    Query<Trip> ticket= session.createQuery(hql, Trip.class);
-//    ticket.setParameter("nationalId", nationalIdMember);
-//    return ticket.getResultList();
-    return null;
+  public Collection<Ticket> findTicketByMemberId(Long id) {
+      String hql="select t from Ticket t where t.member.id=:id";
+    Query<Ticket> ticket= session.createQuery(hql, Ticket.class);
+    ticket.setParameter("id", id);
+      return ticket.getResultList();
   }
+
+
 }

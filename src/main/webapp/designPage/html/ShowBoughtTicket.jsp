@@ -1,7 +1,7 @@
-<%@ page import="ir.maktab.mohammad_sedghi_hw23_question1_maktab92.entity.Trip" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.List" %>
-<%@ page import="ir.maktab.mohammad_sedghi_hw23_question1_maktab92.entity.Trip" %><%--
+<%@ page import="ir.maktab.mohammad_sedghi_hw23_question1_maktab92.entity.Ticket" %>
+<%@ page import="ir.maktab.mohammad_sedghi_hw23_question1_maktab92.controller.VerifyTicket" %><%--
   Created by IntelliJ IDEA.
   User: mohammad
   Date: 7/17/2023
@@ -30,7 +30,7 @@
             <a class="nav-link text-dark fw-bold" href="searchTrip.html">خرید بلیط</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white fw-bold" href="ShowBoughtTicket.jsp">(لیست بلیط های خریداری شده) </a>
+            <a class="nav-link text-dark fw-bold" href="ShowBoughtTicket.jsp">(لیست بلیط های خریداری شده) </a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-dark fw-bold" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="true">
@@ -66,13 +66,16 @@
     <%
       int counter=1;
       HttpSession session1=request.getSession();
-      List<Trip> trips = new ArrayList<>((ArrayList) request.getAttribute("boughtTripList"));
-      for (Trip trip : trips) {
+    // List<Ticket> tickets = new ArrayList<>((ArrayList) session1.getAttribute("boughtTicketList"));
+       VerifyTicket verifyTicket=new VerifyTicket();
+      List<Ticket> tickets =verifyTicket.initializerBoughtTicket();
+      System.out.println("sssss"+tickets);
+      for (Ticket ticket : tickets) {
     %>
     <tr>
       <th scope="row"><%= counter%></th>
-      <td><%= trip.getDepartureDate() %></td>
-      <td><%= trip.getTravelId() %></td>
+      <td><%= ticket.getDepartureDate() %></td>
+      <td><%= ticket.getTravelId() %></td>
       <td><button type="submit" value="<%= counter%>" name="show">مشاهده بلیط</button></td>
     </tr>
     <%
