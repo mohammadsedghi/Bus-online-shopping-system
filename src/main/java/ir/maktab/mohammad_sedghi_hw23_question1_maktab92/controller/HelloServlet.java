@@ -26,24 +26,7 @@ public class HelloServlet extends HttpServlet {
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-//        Session session = sessionFactory.openSession();
-//         passengerRepository = new PassengerRepositoryImpl(session);
-//        passengerService = new PassengerServiceImpl(passengerRepository);
-//        String username = request.getParameter("fname");
-//        String password = request.getParameter("lname");
-//        passengerService.findByUsernameAndPassword(username, password);
-//        if (member == null) {
-//            response.sendRedirect("login.html");
-//        } else {
-//            response.sendRedirect("designPage/html/searchTrip.html");
-//
-//        }
-//        response.setContentType("text/html");
-//        // Hello
-//        PrintWriter out = response.getWriter();
-//        out.println("<html><body>");
-//        out.println("<h1>" + message + "</h1>");
-//        out.println("</body></html>");
+
     }
 
     @Override
@@ -58,8 +41,11 @@ public class HelloServlet extends HttpServlet {
         String nationalCode=req.getParameter("national");
         String gender=req.getParameter("gender");
         Member member =new Member(firstName,lastName,nationalCode,gender,username,password);
+       if (memberService.validate(member)){
         memberService.save(member);
          resp.sendRedirect("designPage/html/logIn.html");
+       }
+       else { resp.sendRedirect("designPage/html/signup.html");}
     }
 
 
