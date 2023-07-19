@@ -46,7 +46,7 @@ public class TicketRepositoryImpl extends BaseRepositoryImpl<Ticket,Long>
 //      return query.getResultList();
 
       String hql="select t from Ticket t  where t.beginning=:beginning and t.destination=:destination" +
-              " and t.departureDate=:departureDate and t.member is null order by t.departureTime asc ";
+              " and t.departureDate=:departureDate and t.nationalId is null order by t.departureTime asc ";
         Query<Ticket> ticket= session.createQuery(hql, Ticket.class);
         ticket.setParameter("beginning", beginning);
         ticket.setParameter("destination", destination);

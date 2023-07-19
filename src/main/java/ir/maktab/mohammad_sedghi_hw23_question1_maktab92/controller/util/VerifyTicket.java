@@ -1,11 +1,11 @@
-package ir.maktab.mohammad_sedghi_hw23_question1_maktab92.controller;
+package ir.maktab.mohammad_sedghi_hw23_question1_maktab92.controller.util;
 
 import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.entity.Ticket;
 import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.repository.Impl.TicketRepositoryImpl;
 import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.repository.TicketRepository;
 import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.service.Impl.TicketServiceImpl;
-import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.util.FilterCheck;
-import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.util.HibernateUtil;
+import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.controller.FilterCheck;
+import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.controller.hibernateUtil.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 

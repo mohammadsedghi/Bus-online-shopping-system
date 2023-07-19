@@ -5,7 +5,7 @@
          version="6.0">
     <servlet>
         <servlet-name>helloServlet</servlet-name>
-        <servlet-class>ir.maktab.mohammad_sedghi_hw23_question1_maktab92.util.HelloServlet</servlet-class>
+        <servlet-class>ir.maktab.mohammad_sedghi_hw23_question1_maktab92.controller.HelloServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>helloServlet</servlet-name>
@@ -13,7 +13,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>BackServlet</servlet-name>
-        <servlet-class>ir.maktab.mohammad_sedghi_hw23_question1_maktab92.util.BackServlet</servlet-class>
+        <servlet-class>ir.maktab.mohammad_sedghi_hw23_question1_maktab92.controller.BackServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>BackServlet</servlet-name>
@@ -21,7 +21,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>BuyTicketServlet</servlet-name>
-        <servlet-class>ir.maktab.mohammad_sedghi_hw23_question1_maktab92.util.BuyTicketServlet</servlet-class>
+        <servlet-class>ir.maktab.mohammad_sedghi_hw23_question1_maktab92.controller.BuyTicketServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>BuyTicketServlet</servlet-name>
@@ -29,7 +29,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>confirmTicketServlet</servlet-name>
-        <servlet-class>ir.maktab.mohammad_sedghi_hw23_question1_maktab92.util.ConfirmServlet</servlet-class>
+        <servlet-class>ir.maktab.mohammad_sedghi_hw23_question1_maktab92.controller.ConfirmServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>confirmTicketServlet</servlet-name>
@@ -37,7 +37,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>ShowBoughtTicket</servlet-name>
-        <servlet-class>ir.maktab.mohammad_sedghi_hw23_question1_maktab92.util.ShowBoughtTicket</servlet-class>
+        <servlet-class>ir.maktab.mohammad_sedghi_hw23_question1_maktab92.controller.ShowBoughtTicket</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ShowBoughtTicket</servlet-name>
@@ -45,7 +45,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>ShowDetailBoughtTicket</servlet-name>
-        <servlet-class>ir.maktab.mohammad_sedghi_hw23_question1_maktab92.util.ShowDetailBoughtTicket</servlet-class>
+        <servlet-class>ir.maktab.mohammad_sedghi_hw23_question1_maktab92.controller.ShowDetailBoughtTicket</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ShowDetailBoughtTicket</servlet-name>
@@ -54,17 +54,25 @@
 
     <servlet>
         <servlet-name>cancelServlet</servlet-name>
-        <servlet-class>ir.maktab.mohammad_sedghi_hw23_question1_maktab92.util.CancelTicketServlet</servlet-class>
+        <servlet-class>ir.maktab.mohammad_sedghi_hw23_question1_maktab92.controller.CancelTicketServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>cancelServlet</servlet-name>
         <url-pattern>/cancel</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>BeforeLoginServlet</servlet-name>
+        <servlet-class>ir.maktab.mohammad_sedghi_hw23_question1_maktab92.controller.BeforeLoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>BeforeLoginServlet</servlet-name>
+        <url-pattern>/beforeLogin</url-pattern>
+    </servlet-mapping>
 
 
     <servlet>
         <servlet-name>AfterFilter</servlet-name>
-        <servlet-class>ir.maktab.mohammad_sedghi_hw23_question1_maktab92.util.AfterFilter</servlet-class>
+        <servlet-class>ir.maktab.mohammad_sedghi_hw23_question1_maktab92.controller.AfterFilter</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>AfterFilter</servlet-name>
@@ -74,7 +82,7 @@
 
     <filter>
         <filter-name>f1</filter-name>
-        <filter-class>ir.maktab.mohammad_sedghi_hw23_question1_maktab92.util.FilterCheck</filter-class>
+        <filter-class>ir.maktab.mohammad_sedghi_hw23_question1_maktab92.controller.FilterCheck</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>f1</filter-name>

@@ -22,13 +22,12 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active text-dark fw-bold" aria-current="page" href="logIn.html">ورود</a>
+                    <form method="post" action="http://localhost:8080/mohammad_sedghi_hw23_question1_maktab92_war_exploded/beforeLogin">
+                        <input type="submit" class="nav-link active text-dark fw-bold" value="ورود">
+                    </form>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active text-dark fw-bold" aria-current="page" href="signup.html">ثبت نام</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark fw-bold" href="searchTrip.html">خرید بلیط</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-dark fw-bold" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="true">

@@ -40,4 +40,16 @@ public class MemberRepositoryImpl extends BaseRepositoryImpl<Member,Long>
         }
 
     }
+
+    @Override
+    public Optional<Member> findByUsername(String username) {
+        try {
+            String hql = "select p from Member p where p.username=:username";
+            Query<Member> user = session.createQuery(hql, Member.class);
+            user.setParameter("username", username);
+            return Optional.of(user.getSingleResult());
+        }catch (NoResultException e){
+            return Optional.empty();
+        }
+    }
 }

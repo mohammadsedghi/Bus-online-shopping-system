@@ -7,4 +7,6 @@ import java.util.Optional;
 
 public interface MemberRepository extends BaseRepository<Member,Long> {
     Optional<Member> findByUsernameAndPassword(String username, String password);
+    Optional<Member> findByUsername(String username);
+
 }

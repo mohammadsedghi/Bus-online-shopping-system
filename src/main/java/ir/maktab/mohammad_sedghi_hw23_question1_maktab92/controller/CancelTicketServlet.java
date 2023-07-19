@@ -1,24 +1,22 @@
-package ir.maktab.mohammad_sedghi_hw23_question1_maktab92.util;
+package ir.maktab.mohammad_sedghi_hw23_question1_maktab92.controller;
 
-import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.controller.VerifyTicket;
+
+import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.controller.hibernateUtil.HibernateUtil;
 import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.entity.Ticket;
 import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.repository.Impl.TicketRepositoryImpl;
 import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.repository.TicketRepository;
 import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.service.Impl.TicketServiceImpl;
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
-
-public class ShowBoughtTicket extends HttpServlet {
+public class CancelTicketServlet extends HttpServlet {
     TicketRepository ticketRepository;
     TicketServiceImpl ticketService;
     private SessionFactory sessionFactory;
@@ -31,11 +29,13 @@ public class ShowBoughtTicket extends HttpServlet {
         Session sessionDb = sessionFactory.openSession();
         ticketRepository = new TicketRepositoryImpl(sessionDb);
         ticketService = new TicketServiceImpl(ticketRepository);
-        Long id = FilterCheck.member.getId();
-        List<Ticket> boughtTicketList =new ArrayList<>(ticketService.findTicketByMemberId(id));
-        VerifyTicket.boughtTicket = boughtTicketList;
-        HttpSession session=req.getSession();
-        session.setAttribute("boughtTicketList", boughtTicketList);
-        resp.sendRedirect("designPage/html/ShowBoughtTicket.jsp");
+        String ticketStrId=req.getParameter("cancel");
+       Ticket ticket=new Ticket();
+       ticket.setId(Long.parseLong(ticketStrId));
+         ticketService.remove(ticket);
+       // RequestDispatcher rd=req.getRequestDispatcher("designPage/html/endPage.html");
+        RequestDispatcher rd=req.getRequestDispatcher("designPage/html/ee.jsp");
+        rd.forward(req,resp);
+
     }
 }

@@ -1,14 +1,12 @@
 package ir.maktab.mohammad_sedghi_hw23_question1_maktab92.service.Impl;
 
 import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.base.service.Impl.BaseServiceImpl;
-import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.controller.VerifyTicket;
 import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.entity.Ticket;
 import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.repository.TicketRepository;
 import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.service.TicketService;
 
 import java.time.LocalDate;
 import java.util.Collection;
-import java.util.Optional;
 
 public class TicketServiceImpl extends BaseServiceImpl<Ticket,Long, TicketRepository>
         implements TicketService {

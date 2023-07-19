@@ -1,11 +1,8 @@
-<%@ page import="java.util.ArrayList" %>
-<%@ page import="java.util.List" %>
-<%@ page import="ir.maktab.mohammad_sedghi_hw23_question1_maktab92.entity.Ticket" %>
-<%@ page import="ir.maktab.mohammad_sedghi_hw23_question1_maktab92.controller.util.VerifyTicket" %><%--
+<%--
   Created by IntelliJ IDEA.
   User: mohammad
-  Date: 7/17/2023
-  Time: 12:25 AM
+  Date: 7/19/2023
+  Time: 8:47 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -13,9 +10,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="<%=request.getContextPath()+"/designPage/css/confirm.css"%>">
+    <!--<link href="/cssFile/bootstrap.min.css" type="text/css" rel="stylesheet">-->
+   <%--  <link rel="stylesheet"  href="../css/home.css">--%>
+  <link rel="stylesheet"  href="<%=request.getContextPath()+"/designPage/css/home.css"%>">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <title>نمایش بلیط </title>
+<%--  <link href="<%=request.getContextPath()+"/designPage/css/cssFile/bootstrap.min.css" %>" type="text/css" rel="stylesheet">--%>
+  <style>
+    body{
+      background-image: url('<%=request.getContextPath()+"/designPage/images/home.jpg"%>');
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+  </style>
+    <title>لغو بلیط</title>
 </head>
 <body>
 <div>
@@ -24,10 +31,16 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active text-dark fw-bold" aria-current="page" href="index.jsp">صفحه اصلی</a>
+            <a class="nav-link active text-dark fw-bold" aria-current="page" href="<%=request.getContextPath()+"/designPage/html/index.jsp"%>">صفحه اصلی</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-dark fw-bold" href="searchTrip.html">خرید بلیط</a>
+            <a class="nav-link active text-dark fw-bold" aria-current="page" href="<%=request.getContextPath()+"/designPage/html/signup.htm"%>l">ثبت نام</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-dark fw-bold" href="<%=request.getContextPath()+"/designPage/html/searchTrip.html"%>">خرید بلیط</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-dark fw-bold" href="<%=request.getContextPath()+"/designPage/html/ShowBoughtTicket.jsp"%>">(لیست بلیط های خریداری شده) </a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-dark fw-bold" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="true">
@@ -47,44 +60,12 @@
       </div>
     </div>
   </nav>
-</div>
-
-<form method="post" action = "http://localhost:8080/mohammad_sedghi_hw23_question1_maktab92_war_exploded/ShowDetailBoughtTicket">
-  <table class="table table-bordered border-primary border-2">
-    <thead class="table-primary text-dark fw-bold">
-    <tr>
-      <th scope="col">ردیف</th>
-      <th scope="col">تاریخ</th>
-      <th scope="col">شناسه سفر </th>
-      <th scope="col">انتخاب</th>
-    </tr>
-    </thead>
-
-    <%
-      int counter=1;
-       VerifyTicket verifyTicket=new VerifyTicket();
-      List<Ticket> tickets =verifyTicket.initializerBoughtTicket();
-      if (tickets.size()==0){ %>
+  <div>
     <div class="alert alert-danger t alert-position" style="text-align: right" role="alert">
-      بلیط مورد نظر یافت نشد و یا قبلا حذف شده است
+      بلیط شما با موفقیت لغو گردید
     </div>
-    <% }
-      System.out.println("sssss"+tickets);
-      for (Ticket ticket : tickets) {
-
-    %>
-    <tr>
-      <th scope="row"><%= counter%></th>
-      <td><%= ticket.getDepartureDate() %></td>
-      <td><%= ticket.getTravelId() %></td>
-      <td><button class="btn btn-info text-white fw-bold" type="submit" value="<%= ticket.getId()%>" name="show">مشاهده بلیط</button></td>
-    </tr>
-    <%
-        counter++;
-      }
-    %>
-  </table>
-</form>
+  </div>
+</div>
 
 </body>
 </html>

@@ -1,7 +1,6 @@
-package ir.maktab.mohammad_sedghi_hw23_question1_maktab92.util;
+package ir.maktab.mohammad_sedghi_hw23_question1_maktab92.controller;
 
 import jakarta.servlet.ServletException;
-import jakarta.servlet.http.HttpFilter;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

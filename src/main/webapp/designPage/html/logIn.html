@@ -48,8 +48,9 @@
         </div>
     </div>
 </nav>
+<div class="bg-white" style="direction: rtl" id="alert-container"></div>
 <div class="form ">
-    <form method="post" action="http://localhost:8080/mohammad_sedghi_hw23_question1_maktab92_war_exploded/afterFilter">
+    <form id="myForm" onsubmit="return validateForm()" method="post" action="http://localhost:8080/mohammad_sedghi_hw23_question1_maktab92_war_exploded/afterFilter">
         <label class="fw-bold fs-6 label-logIn" for="fname">نام کاربری</label><br>
         <input class="textField-logIn" type="text" id="fname" name="fname" value="mohammad"><br>
         <label class="fw-bold fs-6 label-logIn label-logIn-pass" for="lname">رمز عبور</label><br>
@@ -60,6 +61,32 @@
     </form>
 </div>
 <script>
+        function validateForm() {
+        var fieldValueUsername = document.getElementById("fname").value;
+        var fieldValuePassword = document.getElementById("lname").value;
+        if (fieldValueUsername === ""||fieldValuePassword === "") {
+        showAlert("لطفا تمامی فیلد ها را پر نمایید در غیر این صورت انتقال به صفحه بعد امکان پذیر نمی باشد ");
+        return false;
+    }
+        return true;
+    }
+        function showAlert(message) {
+             var alertDiv = document.createElement("div");
+             alertDiv.className = "bg-white fw-bold";
+            alertDiv.textContent = message;
+            var closeButton = document.createElement("button");
+            closeButton.textContent = "Close";
+            closeButton.className = " btn btn-danger";
+            closeButton.addEventListener("click", function() {
+                alertDiv.parentNode.removeChild(alertDiv);
+            });
+            alertDiv.appendChild(closeButton);
+            var form = document.getElementById("myForm");
+            form.parentNode.insertBefore(alertDiv, form);
+             document.body.appendChild(alertDiv);
+            var container = document.getElementById("alert-container");
+            container.appendChild(alertDiv);
+        }
     function myFunction() {
         let x = document.getElementById("lname");
         if (x.type === "password") {

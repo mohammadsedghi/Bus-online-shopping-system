@@ -1,4 +1,4 @@
-package ir.maktab.mohammad_sedghi_hw23_question1_maktab92.util;
+package ir.maktab.mohammad_sedghi_hw23_question1_maktab92.controller.hibernateUtil;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.Metadata;
