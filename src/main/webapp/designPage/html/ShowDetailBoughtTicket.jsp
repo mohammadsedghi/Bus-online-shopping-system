@@ -11,7 +11,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<%--    <link rel="stylesheet" href="../css/confirm.css">--%>
     <link rel="stylesheet" href="<%=request.getContextPath()+"/designPage/css/confirm.css"%>">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 
@@ -25,6 +24,11 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link active text-dark fw-bold" aria-current="page" href="<%=request.getContextPath()+"/designPage/html/index.jsp"%>">صفحه اصلی</a>
+                    </li>
+                    <li class="nav-item">
+                        <form method="post" action="http://localhost:8080/mohammad_sedghi_hw23_question1_maktab92_war_exploded/first">
+                            <button type="submit" class="nav-link active text-dark fw-bold logout" >خروج</button>
+                        </form>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active text-dark fw-bold" aria-current="page" href="<%=request.getContextPath()+"/designPage/html/signup.htm"%>l">ثبت نام</a>
@@ -53,10 +57,11 @@
             </div>
         </div>
     </nav>
-    <div>
+    <div style="width: 600px;  margin-left: 400px">
         <form method="post"  action = "http://localhost:8080/mohammad_sedghi_hw23_question1_maktab92_war_exploded/cancel">
-            <table class="table table-bordered border-primary border-3">
-                <thead class="table-primary text-dark fw-bold">
+            <table class="table table-bordered border-warning border-3 table-striped ">
+                <thead class="table-warning text-dark fw-bold table-striped">
+                <tr><th class="bg-warning" colspan="2" scope="col"><p style="margin-left: 300px;">بلیط اتوبوس</p></th></tr>
                 <tr>
                     <th scope="col">عنوان</th>
                     <th scope="col">توضیحات</th>
@@ -97,7 +102,7 @@
                 <th scope="row">شناسه سفر </th>
                 <td><%= ticket.getTravelId() %></td>
                 </tr>
-                <td><button class="btn btn-info text-white fw-bold" type="submit" value="<%= ticket.getId()%>" name="cancel">لغو</button></td>
+                <tr ><td  class="bg-warning"  colspan="2"><button style="margin-left: 300px;" class="btn btn-info text-white fw-bold" style="justify-content: center" type="submit" value="<%= ticket.getId()%>" name="cancel">لغو</button></td>
                 <%--       <td><input type="submit" value="<%= ticket.getId()%> لغو " name="cancel"  onclick="submitToServlet()"></td>--%>
                 <%--        <td><input  type="button"  value="مشاهده بلیط" onclick="goToAnotherPage()"></td>--%>
                 </tr>

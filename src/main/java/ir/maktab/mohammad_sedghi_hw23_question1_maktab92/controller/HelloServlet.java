@@ -26,6 +26,9 @@ public class HelloServlet extends HttpServlet {
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        System.out.println( FilterCheck.member.getUsername());
+        FilterCheck.member=null;
+        response.sendRedirect("designPage/html/logIn.html");
 
     }
 

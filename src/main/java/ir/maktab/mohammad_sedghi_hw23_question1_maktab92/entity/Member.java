@@ -4,6 +4,7 @@ import ir.maktab.mohammad_sedghi_hw23_question1_maktab92.base.entity.BaseEntity;
 import jakarta.persistence.Entity;
 
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -23,6 +24,7 @@ public class Member extends BaseEntity<Long> {
     String lastName;
     @Size(min = 10)
     @Size(max = 10)
+    @Pattern(regexp = "\\d+", message = "only digits are allowed")
     String nationalId;
     String gender;
     @NotNull(message = "age must be have value")

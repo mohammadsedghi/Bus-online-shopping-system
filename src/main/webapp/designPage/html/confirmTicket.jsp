@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/confirm.css">
+<%--    <link rel="stylesheet" href="../css/confirm.css">--%>
+    <link rel="stylesheet"  href="<%=request.getContextPath()+"/designPage/css/confirm.css"%>">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <style>
         body{
@@ -23,6 +24,11 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link active text-dark fw-bold" aria-current="page" href="logIn.html">ورود</a>
+                    </li>
+                    <li class="nav-item">
+                        <form method="post" action="http://localhost:8080/mohammad_sedghi_hw23_question1_maktab92_war_exploded/first">
+                            <button type="submit" class="nav-link active text-dark fw-bold logout" >خروج</button>
+                        </form>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-dark fw-bold" href="searchTrip.html">خرید بلیط</a>

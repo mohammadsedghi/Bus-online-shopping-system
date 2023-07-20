@@ -34,4 +34,11 @@ class MemberServiceImplTest {
         Assertions.assertEquals(member, memberService.findByUsername(""));
 
     }
+    @Test
+    void validate() {
+        Mockito.when(memberService.validate(member)).thenReturn(true);
+        Assertions.assertEquals(true, memberService.validate(member));
+
+    }
+
 }

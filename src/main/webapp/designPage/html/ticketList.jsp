@@ -63,7 +63,7 @@
   <div>
     <form method="post" action = "http://localhost:8080/mohammad_sedghi_hw23_question1_maktab92_war_exploded/buy">
       <table class="table table-bordered border-primary border-2">
-        <thead class="table-primary text-dark fw-bold">
+        <thead class="table-primary text-dark fw-bold table-striped">
         <tr>
           <th scope="col">ردیف</th>
           <th scope="col">مسیر</th>

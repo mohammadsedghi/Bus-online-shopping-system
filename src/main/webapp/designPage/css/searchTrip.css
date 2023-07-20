@@ -27,3 +27,7 @@ a:hover{
     background-color: #8aa67c;
     border-radius: 10px;
 }
+.logout{
+    background: transparent;
+    border: none;
+}

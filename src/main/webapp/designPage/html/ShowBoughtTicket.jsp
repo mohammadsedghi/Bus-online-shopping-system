@@ -50,7 +50,7 @@
 </div>
 
 <form method="post" action = "http://localhost:8080/mohammad_sedghi_hw23_question1_maktab92_war_exploded/ShowDetailBoughtTicket">
-  <table class="table table-bordered border-primary border-2">
+  <table class="table table-bordered border-primary border-2 table-striped">
     <thead class="table-primary text-dark fw-bold">
     <tr>
       <th scope="col">ردیف</th>

@@ -37,6 +37,11 @@
             <a class="nav-link active text-dark fw-bold" aria-current="page" href="<%=request.getContextPath()+"/designPage/html/signup.htm"%>l">ثبت نام</a>
           </li>
           <li class="nav-item">
+            <form method="post" action="http://localhost:8080/mohammad_sedghi_hw23_question1_maktab92_war_exploded/first">
+              <button type="submit" class="nav-link active text-dark fw-bold logout" >خروج</button>
+            </form>
+          </li>
+          <li class="nav-item">
             <a class="nav-link text-dark fw-bold" href="<%=request.getContextPath()+"/designPage/html/searchTrip.html"%>">خرید بلیط</a>
           </li>
           <li class="nav-item">

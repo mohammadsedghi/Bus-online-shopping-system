@@ -16,7 +16,7 @@ a:hover{
 .form{
 
     width: 300px;
-    height: 100px;
+    height: 400px;
     margin-top: 50px;
     margin-left: 50px;
     border-radius: 10px;
@@ -27,4 +27,8 @@ a:hover{
     direction: rtl;
     background-color: #ff7f50;
 
+}
+.logout{
+    background: transparent;
+    border: none;
 }

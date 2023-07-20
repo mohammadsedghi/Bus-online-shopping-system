@@ -28,3 +28,7 @@ a:hover{
     justify-content: center;
     text-align: center;
 }
+.logout{
+    background: transparent;
+    border: none;
+}
